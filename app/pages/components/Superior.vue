@@ -7,6 +7,7 @@
         <p>Aqui pode ir uma subheadline mais explicativa</p>
         <input type="email" id="email" placeholder="E-mail" />
         <input type="tel" id="wpp" placeholder="Whatsapp" />
+        <button onclick="{{ alert('Botão Clicado') }}">Nome do Botão</button>
       </div>
     </div>
   </div>
