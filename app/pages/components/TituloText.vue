@@ -35,14 +35,24 @@
 
 /*media querys*/
 
-@media (max-width: 767px) {
+@media (min-width: 767px) and (max-width: 991px) {
   .titulos {
-    margin-top: 17vh;
+    margin-top: 25vh;
   }
 }
-@media (min-width: 768px) {
+
+@media (max-width: 767px) {
   .titulos {
-    margin-top: 10vh;
+    margin-top: 20vh;
+  }
+}
+/* @media (min-width: 768px) {
+  .titulos {
+  } */
+
+@media (max-width: 575px) {
+  .titulos {
+    margin-top: 50vh;
   }
 }
 </style>

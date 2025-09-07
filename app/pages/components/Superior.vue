@@ -102,13 +102,22 @@
 
 /* media querys */
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
   .superior-container {
-    height: auto;
-    width: 36%;
-    right: 20%;
+    width: 35%;
+    top: -90%;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .superior-container {
+    width: 44%;
+
     padding: 50px;
-    top: -58vh;
+    top: -68vh;
+  }
+  .image-background {
+    height: 125%;
   }
 }
 
@@ -116,11 +125,24 @@
   /* media query para dimensionamento dos componentes no tamanho para mobile */
   .image-background {
     height: 125%;
-    background-position: -120vh;
+    background-position: -100vh;
+  }
+
+  .superior-container {
+    width: 70%;
+    top: -68vh;
+  }
+
+  .inputCampo {
+    width: 50vh;
+  }
+
+  .botao {
+    width: 50vh;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 575px) {
   /* media query de ajuste para telas ainda um pouco menores */
   .inputCampo {
     width: 80%;
@@ -129,6 +151,14 @@
     border: 1px solid #ccc;
     border-radius: 25px;
     text-align: left;
+  }
+
+  .superior-container {
+    width: 80%;
+  }
+
+  .image-background {
+    height: 100vh;
   }
 
   .botao {
