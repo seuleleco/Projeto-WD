@@ -3,13 +3,11 @@
     <Superior />
     <TituloText />
     <Cards />
-    <div>
-      <h1>Home</h1>
-    </div>
   </div>
 </template>
 
 <script setup>
+import "bootstrap/dist/css/bootstrap.min.css"; //Importação do bootstrap
 //Importação dos componentes usados na pagina
 import Superior from "../pages/components/Superior.vue";
 import Cards from "../pages/components/Cards.vue";
