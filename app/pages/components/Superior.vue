@@ -4,7 +4,7 @@
     <div class="container-fluid superior-container">
       <div class="row align-items-center h-100">
         <div class="col-sm-6 col-md-12 form-col">
-          <div class="form-content col-sm-6 col-md-12">
+          <div class="form-content col-sm-12 col-md-6 col-lg-3">
             <img src="/logo.png" class="logo" alt="Logo" />
             <h1 class="title">Aqui vai para um título persuasivo</h1>
             <p>Aqui pode ir uma subheadline mais explicativa</p>
@@ -103,7 +103,6 @@
 /* media querys */
 
 @media (min-width: 768px) {
-  /* media query para dimensionamento dos componentes no tamanho para desktop */
   .superior-container {
     height: auto;
     width: 36%;
