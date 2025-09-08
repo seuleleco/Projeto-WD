@@ -9,14 +9,21 @@
             <h1 class="title">Aqui vai para um título persuasivo</h1>
             <p>Aqui pode ir uma subheadline mais explicativa</p>
 
-            <input type="email" class="inputCampo" placeholder="E-mail" />
-            <input type="tel" class="inputCampo" placeholder="Whatsapp" />
-            <button
-              type="submit"
-              variant="primary"
-              class="botao"
-              onclick="{{ alert('Botão Clicado') }}"
-            >
+            <input
+              type="email"
+              class="inputCampo"
+              id="email"
+              placeholder="E-mail"
+              required
+            />
+            <input
+              type="tel"
+              class="inputCampo"
+              id="telefone"
+              placeholder="Whatsapp"
+              required
+            />
+            <button type="submit" class="botao" id="botao">
               Nome do Botão
             </button>
           </div>
@@ -25,6 +32,24 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  mounted() {
+    //para executar a função após carregar a pagina (DOM)
+    //função para simples funcionamento do formulario
+    const botaoValor = document.getElementById("botao");
+    const emailInput = document.getElementById("email");
+    const telefoneInput = document.getElementById("telefone");
+
+    botaoValor.addEventListener("click", () => {
+      const emailValor = emailInput.value;
+      const telefoneValor = telefoneInput.value;
+      alert(`E-mail: ${emailValor} - Telefone: ${telefoneValor}`);
+    });
+  },
+};
+</script>
 
 <style scoped>
 .superior-section {
