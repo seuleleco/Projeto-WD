@@ -35,8 +35,8 @@
 
 <script>
 export default {
+  //para executar a função após carregar a pagina (DOM)
   mounted() {
-    //para executar a função após carregar a pagina (DOM)
     //função para simples funcionamento do formulario
     const botaoValor = document.getElementById("botao");
     const emailInput = document.getElementById("email");
@@ -125,8 +125,9 @@ export default {
   width: 40vh;
 }
 
-/* media querys */
+/* media querys para dimensionamento dos componentes em diferentes tamanhos */
 
+/*em px está definido o tamanho da tela */
 @media (min-width: 2000px) {
   .logo {
     width: 25vh;
@@ -154,7 +155,6 @@ export default {
 }
 
 @media (max-width: 767px) {
-  /* media query para dimensionamento dos componentes no tamanho para mobile */
   .image-background {
     height: 125%;
     background-position: -100vh;
@@ -175,7 +175,7 @@ export default {
 }
 
 @media (max-width: 575px) {
-  /* media query de ajuste para telas ainda um pouco menores */
+  /* media query de ajuste para telas ainda menores */
   .inputCampo {
     width: 80%;
     padding: 5px;

@@ -33,8 +33,9 @@
   margin-right: 20%;
 }
 
-/*media querys*/
+/* media querys para dimensionamento dos componentes em diferentes tamanhos */
 
+/*em px está definido o tamanho da tela */
 @media (min-width: 991px) {
   .titulos {
     margin-top: 10vh;

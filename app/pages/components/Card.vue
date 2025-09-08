@@ -1,5 +1,5 @@
 <template>
-  <div class="card-item">
+  <div class="card-item my-4">
     <div class="card-image-placeholder"></div>
     <h4>{{ title }}</h4>
     <p>{{ description }}</p>
