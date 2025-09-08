@@ -1,75 +1,32 @@
-# Nuxt Minimal Starter
+Projeto-WD
+Este é um projeto de uma página web com layout responsivo, desenvolvido com Vue.js e Nuxt.js. O objetivo principal foi criar uma experiência de usuário consistente e acessível em diferentes tamanhos de tela.
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Tecnologias Utilizadas
+Vue.js: Framework progressivo para a construção de interfaces de usuário.
 
-## Setup
+Nuxt.js: Framework intuitivo baseado em Vue para a criação de aplicações de SSR (Server-Side Rendering) e geração de sites estáticos.
 
-Make sure to install dependencies:
+HTML: Linguagem de marcação para estruturação da página.
 
-```bash
-# npm
+CSS: Linguagem de estilo para o visual e design do projeto.
+
+Grid Bootstrap: Sistema de grid para auxiliar na construção do layout responsivo.
+
+Como Executar o Projeto
+Para visualizar e trabalhar com o projeto em sua máquina local, siga os passos abaixo:
+
+Clone o repositório:
+
+https://github.com/seu-usuario/projeto-wd.git](https://github.com/seuleleco/Projeto-WD.git
+Acesse o diretório do projeto:
+
+
+cd projeto-wd
+Instale as dependências:
+
+
 npm install
+Inicie o servidor de desenvolvimento:
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+O projeto estará disponível em http://localhost:3000.
