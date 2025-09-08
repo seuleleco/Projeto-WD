@@ -32,13 +32,13 @@
 }
 
 .superior-container {
-  /*o ajuste padrão deste elemento esta para a versão mobile, versão desktop possui um media query*/
   display: flex;
   justify-content: center;
   position: relative;
   top: -73vh;
   height: auto;
   width: 90%;
+
   background-color: rgb(255, 255, 255);
   border-radius: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -102,16 +102,23 @@
 
 /* media querys */
 
+@media (min-width: 2000px) {
+  .logo {
+    width: 25vh;
+  }
+}
+
 @media (min-width: 991px) {
   .superior-container {
-    width: 35%;
-    top: -90%;
+    width: 38%;
+    top: -98%;
+    right: 15%;
   }
 }
 
 @media (min-width: 767px) and (max-width: 991px) {
   .superior-container {
-    width: 44%;
+    width: 50%;
 
     padding: 50px;
     top: -68vh;

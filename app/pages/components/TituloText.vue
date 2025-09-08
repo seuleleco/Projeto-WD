@@ -35,6 +35,12 @@
 
 /*media querys*/
 
+@media (min-width: 991px) {
+  .titulos {
+    margin-top: 10vh;
+  }
+}
+
 @media (min-width: 767px) and (max-width: 991px) {
   .titulos {
     margin-top: 25vh;
