@@ -1,32 +1,46 @@
-Projeto-WD
-Este é um projeto de uma página web com layout responsivo, desenvolvido com Vue.js e Nuxt.js. O objetivo principal foi criar uma experiência de usuário consistente e acessível em diferentes tamanhos de tela.
+<h1>Projeto-WD</h1> <br>
+Página web com layout responsivo, desenvolvida com Vue.js e Nuxt.js. 
+<br>
+<br>
+<h2>💻 Tecnologias Utilizadas:</h2>
+<br>
 
-Tecnologias Utilizadas
 Vue.js: Framework progressivo para a construção de interfaces de usuário.
+<br>
+<br>
+Nuxt.js: Framework intuitivo baseado em Vue para a criação de aplicações de SSR e sites estáticos.
+<br>
+<br>
+HTML & CSS: Estrutura e estilização da página.
+<br>
+<br>
+Grid Bootstrap: Sistema de grid para um layout responsivo e alinhado.
+<br>
+<br>
+<br>
 
-Nuxt.js: Framework intuitivo baseado em Vue para a criação de aplicações de SSR (Server-Side Rendering) e geração de sites estáticos.
+<h2>🚀 Como Executar o Projeto</h2>
+<br>
 
-HTML: Linguagem de marcação para estruturação da página.
-
-CSS: Linguagem de estilo para o visual e design do projeto.
-
-Grid Bootstrap: Sistema de grid para auxiliar na construção do layout responsivo.
-
-Como Executar o Projeto
-Para visualizar e trabalhar com o projeto em sua máquina local, siga os passos abaixo:
+Para rodar o projeto em sua máquina, siga os passos abaixo:
 
 Clone o repositório:
 
-https://github.com/seu-usuario/projeto-wd.git](https://github.com/seuleleco/Projeto-WD.git
-Acesse o diretório do projeto:
 
 
+git clone https://github.com/seu-usuario/projeto-wd.git
+<br>
+<br>
+Acesse o diretório do projeto:<br>
 cd projeto-wd
 Instale as dependências:
+
 
 
 npm install
 Inicie o servidor de desenvolvimento:
 
-npm run dev
+
+
+npm run dev<br>
 O projeto estará disponível em http://localhost:3000.
