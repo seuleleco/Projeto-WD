@@ -9,21 +9,24 @@
               <img src="/logo.png" class="logo" alt="Logo" />
               <h1 class="title">Aqui vai para um título persuasivo</h1>
               <p>Aqui pode ir uma subheadline mais explicativa</p>
-              <form class="formulario">
+              <form class="formulario" @submit.prevent="submitForm">
                 <label for="email">
                   <input
                     type="email"
                     class="inputCampo"
                     id="email"
                     placeholder="E-mail"
-                    required:class="{ 'is-invalid': v$.form.email.$error }"
-                    v-model="v$.form.email.$model"
+                    v-model="v$.email.$model"
+                    @blur="v$.email.$touch()"
+                    :class="{ 'is-invalid': v$.email.$error }"
                   />
 
                   <div class="error-container">
-                    <span v-if="v$.form.email.$error" class="error-message">
-                      <i class="fas fa-exclamation-circle"></i> O campo e-mail
-                      deve ser um e-mail válido.
+                    <span v-if="v$.email.$error" class="error-message">
+                      <p v-for="error of v$.email.$errors" :key="error.$uid">
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ error.$message }}
+                      </p>
                     </span>
                   </div>
                 </label>
@@ -34,10 +37,21 @@
                     class="inputCampo"
                     id="telefone"
                     placeholder="Whatsapp"
-                    required
+                    v-model="v$.phone.$model"
+                    @blur="v$.phone.$touch()"
+                    :class="{ 'is-invalid': v$.phone.$error }"
                   />
+
+                  <div class="error-container">
+                    <span v-if="v$.phone.$error" class="error-message">
+                      <p v-for="error of v$.phone.$errors" :key="error.$uid">
+                        <i class="fas fa-exclamation-circle"></i>
+                        {{ error.$message }}
+                      </p>
+                    </span>
+                  </div>
                 </label>
-                <button @click="SubmitForm" class="botao" id="botao">
+                <button type="submit" class="botao" id="botao">
                   Nome do Botão
                 </button>
               </form>
@@ -49,7 +63,46 @@
   </client-only>
 </template>
 
-<script>
+<script setup>
+import { reactive, computed } from "vue";
+import { useVuelidate } from "@vuelidate/core";
+import { required, email, helpers } from "@vuelidate/validators";
+const state = reactive({
+  email: "",
+  phone: "",
+});
+
+const rules = computed(() => ({
+  email: {
+    required: helpers.withMessage("O campo e-mail é obrigatório.", required),
+    email: helpers.withMessage(
+      "O campo e-mail deve ser um e-mail válido.",
+      email
+    ),
+  },
+  phone: {
+    required: helpers.withMessage("O telefone é obrigatório.", required),
+    isValidPhone: helpers.withMessage(
+      "Insira um telefone válido (ex: 11999999999).",
+      (value) => {
+        if (!value) return true;
+        const cleanedValue = value.replace(/\D/g, "");
+        return cleanedValue.length >= 10 && cleanedValue.length <= 11;
+      }
+    ),
+  },
+}));
+
+const v$ = useVuelidate(rules, state);
+
+const submitForm = async () => {
+  const isFormValid = await v$.value.$validate();
+  if (isFormValid) {
+    alert("Formulário válido!");
+  } else {
+    alert("Por favor, corrija os erros no formulário.");
+  }
+};
 //CODIGO DESCARTADO
 //export default {
 //para executar a função após carregar a pagina (DOM)
@@ -105,8 +158,9 @@
   width: 100%;
   max-width: 400px;
   font-size: large;
-  text-align: center;
+  text-align: left;
   font-style: arial;
+  align-items: center;
 }
 .title {
   font-size: 22px;
@@ -165,6 +219,12 @@
 
   .botao {
     width: 70vh;
+  }
+
+  .form-content {
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
   }
 }
 
@@ -232,6 +292,9 @@
 
   .form-content {
     font-size: 12px;
+    max-width: 600px;
+    text-align: center;
+    align-items: center;
   }
 
   .title {
