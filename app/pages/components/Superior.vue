@@ -1,59 +1,76 @@
 <template>
-  <section class="superior-section">
-    <div class="image-background"></div>
-    <div class="container-fluid superior-container">
-      <div class="row align-items-center h-100">
-        <div class="col-sm-6 col-md-12 form-col">
-          <div class="form-content col-sm-12 col-md-6 col-lg-3">
-            <img src="/logo.png" class="logo" alt="Logo" />
-            <h1 class="title">Aqui vai para um título persuasivo</h1>
-            <p>Aqui pode ir uma subheadline mais explicativa</p>
+  <client-only>
+    <section class="superior-section">
+      <div class="image-background"></div>
+      <div class="container-fluid superior-container">
+        <div class="row align-items-center h-100">
+          <div class="col-sm-6 col-md-12 form-col">
+            <div class="form-content col-sm-12 col-md-6 col-lg-3">
+              <img src="/logo.png" class="logo" alt="Logo" />
+              <h1 class="title">Aqui vai para um título persuasivo</h1>
+              <p>Aqui pode ir uma subheadline mais explicativa</p>
+              <form class="formulario">
+                <label for="email">
+                  <input
+                    type="email"
+                    class="inputCampo"
+                    id="email"
+                    placeholder="E-mail"
+                    required:class="{ 'is-invalid': v$.form.email.$error }"
+                    v-model="v$.form.email.$model"
+                  />
 
-            <input
-              type="email"
-              class="inputCampo"
-              id="email"
-              placeholder="E-mail"
-              required
-            />
-            <input
-              type="tel"
-              class="inputCampo"
-              id="telefone"
-              placeholder="Whatsapp"
-              required
-            />
-            <button type="submit" class="botao" id="botao">
-              Nome do Botão
-            </button>
+                  <div class="error-container">
+                    <span v-if="v$.form.email.$error" class="error-message">
+                      <i class="fas fa-exclamation-circle"></i> O campo e-mail
+                      deve ser um e-mail válido.
+                    </span>
+                  </div>
+                </label>
+
+                <label for="phone">
+                  <input
+                    type="tel"
+                    class="inputCampo"
+                    id="telefone"
+                    placeholder="Whatsapp"
+                    required
+                  />
+                </label>
+                <button @click="SubmitForm" class="botao" id="botao">
+                  Nome do Botão
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </client-only>
 </template>
 
 <script>
-export default {
-  //para executar a função após carregar a pagina (DOM)
-  mounted() {
-    //função para simples funcionamento do formulario
-    const botaoValor = document.getElementById("botao");
-    const emailInput = document.getElementById("email");
-    const telefoneInput = document.getElementById("telefone");
+//CODIGO DESCARTADO
+//export default {
+//para executar a função após carregar a pagina (DOM)
+//mounted() {
+//função para simples funcionamento do formulario
+//const botaoValor = document.getElementById("botao");
+//const emailInput = document.getElementById("email");
+//const telefoneInput = document.getElementById("telefone");
 
-    botaoValor.addEventListener("click", () => {
-      const emailValor = emailInput.value;
-      const telefoneValor = telefoneInput.value;
-      alert(`E-mail: ${emailValor} - Telefone: ${telefoneValor}`);
-    });
-  },
-};
+//botaoValor.addEventListener("click", () => {
+//const emailValor = emailInput.value;
+//const telefoneValor = telefoneInput.value;
+//alert(`E-mail: ${emailValor} - Telefone: ${telefoneValor}`);
+//});
+//},
+//};
 </script>
 
 <style scoped>
 .superior-section {
-  height: 60vh;
+  height: 80vh;
 }
 
 .superior-container {
@@ -62,7 +79,7 @@ export default {
   position: relative;
   top: -73vh;
   height: auto;
-  width: 90%;
+  width: 70%;
 
   background-color: rgb(255, 255, 255);
   border-radius: none;
@@ -80,7 +97,7 @@ export default {
 
   background-image: url("../../../public/fundo.png");
   background-size: cover;
-  background-position: center;
+  background-position: center 5%;
   background-repeat: no-repeat;
 }
 
@@ -122,7 +139,7 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40vh;
+  width: 50vh;
 }
 
 /* media querys para dimensionamento dos componentes em diferentes tamanhos */
@@ -139,6 +156,15 @@ export default {
     width: 38%;
     top: -98%;
     right: 15%;
+  }
+
+  .inputCampo {
+    width: 70vh;
+    align-items: center;
+  }
+
+  .botao {
+    width: 70vh;
   }
 }
 
@@ -177,7 +203,7 @@ export default {
 @media (max-width: 575px) {
   /* media query de ajuste para telas ainda menores */
   .inputCampo {
-    width: 80%;
+    width: 45vh;
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -187,6 +213,8 @@ export default {
 
   .superior-container {
     width: 80%;
+
+    top: -85vh;
   }
 
   .image-background {
@@ -194,12 +222,12 @@ export default {
   }
 
   .botao {
-    width: 70%;
+    width: 45vh;
     margin: 10px;
   }
 
   .logo {
-    width: 30vh;
+    width: 50vh;
   }
 
   .form-content {
