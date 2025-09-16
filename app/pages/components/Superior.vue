@@ -106,7 +106,7 @@ const submitForm = async () => {
   const isFormValid = await v$.value.$validate();
   const alertContainer = document.querySelector(".alert-container");
   if (isFormValid) {
-    alertContainer.textContent = "Formulário válido!";
+    alertContainer.textContent = "Formulário Validado!";
   } else {
     alertContainer.textContent = "Por favor, corrija os erros no formulário.";
   }

@@ -1,13 +1,14 @@
 <template>
   <section class="content-cards">
     <div class="container">
-      <div class="catousel-container row">
-        <div
-          class="carousel-track col-md-3 col-sm-3"
-          v-for="card in cardsData"
-          :key="card.id"
-        >
-          <Card :title="card.title" :description="card.description" />
+      <div class="carousel-container row">
+        <div class="carousel-track col-md-3 col-sm-3">
+          <Card
+            v-for="card in cardsData"
+            :key="card.id"
+            :title="card.title"
+            :description="card.description"
+          />
         </div>
       </div>
     </div>
@@ -24,7 +25,7 @@ export default {
   },
   data() {
     return {
-      //array com os dados que serao usados nos cards
+      // array com os dados que serao usados nos cards
       cardsData: [
         {
           id: 1,
@@ -55,3 +56,49 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.carousel-container {
+  /*CODIGO QUE PERMITE A ROLAGEM DOS CARDS E IMPEDIR QUE ELES QUEBREM LINHA*/
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  margin-left: 12vh;
+}
+
+.carousel-track .card-item {
+  width: 250px; /* LARGURA DE CADA CARD, PODE VARIAS CONFORME TAMANHO DA TELA */
+  flex-shrink: 0;
+  white-space: normal;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: #1640d6;
+}
+
+/* @media (min-width: 991px) {
+  .carousel-track .card-item {
+    width: 250px;
+    position: relative;
+  }
+} */
+</style>
