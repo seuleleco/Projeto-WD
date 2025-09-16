@@ -105,10 +105,29 @@ const v$ = useVuelidate(rules, state);
 const submitForm = async () => {
   const isFormValid = await v$.value.$validate();
   const alertContainer = document.querySelector(".alert-container");
+  alertContainer.classList.remove("shakeInvalidation");
+  alertContainer.classList.remove("shakeValidation");
   if (isFormValid) {
     alertContainer.textContent = "Formulário Validado!";
+    alertContainer.classList.add("shakeValidation");
+    alertContainer.addEventListener(
+      "animationend",
+      () => {
+        alertContainer.classList.remove("shakeValidation");
+      },
+      { once: true }
+    );
   } else {
     alertContainer.textContent = "Por favor, corrija os erros no formulário.";
+    //ANIMAÇÃO SHAKE NA MENSAGEM DE ERRO QUANDO O FORMULARIO NÃO FOR VALIDADO
+    alertContainer.classList.add("shakeInvalidation");
+    alertContainer.addEventListener(
+      "animationend",
+      () => {
+        alertContainer.classList.remove("shakeInvalidation");
+      },
+      { once: true }
+    );
   }
 };
 
@@ -136,7 +155,7 @@ const submitForm = async () => {
 }
 
 .superior-section {
-  height: 80vh;
+  height: 70vh;
 }
 
 .error-container {
@@ -217,6 +236,53 @@ const submitForm = async () => {
   width: 50vh;
 }
 
+/*PROPRIEDADES DE ANIMÇÃO DA MENSAGEM DO FORMULARIO*/
+@keyframes shakeValidation {
+  0% {
+    transform: translateX(-30vh);
+  }
+  25% {
+    transform: translateX(-20vh);
+  }
+  50% {
+    transform: translateX(-10vh);
+  }
+  75% {
+    transform: translateX(-5vh);
+  }
+  100% {
+    transform: translateX(-0vh);
+  }
+}
+
+@keyframes shakeInvalidation {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shakeInvalidation {
+  animation: shakeInvalidation 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.shakeValidation {
+  animation: shakeValidation 0.3s linear;
+}
 /* media querys para dimensionamento dos componentes em diferentes tamanhos */
 
 /*em px está definido o tamanho da tela */
