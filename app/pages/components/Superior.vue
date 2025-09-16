@@ -45,7 +45,7 @@
                   <div class="error-container">
                     <span v-if="v$.phone.$error" class="error-message">
                       <p v-for="error of v$.phone.$errors" :key="error.$uid">
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i></i>
                         {{ error.$message }}
                       </p>
                     </span>
@@ -67,6 +67,8 @@
 import { reactive, computed } from "vue";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, helpers } from "@vuelidate/validators";
+
+//VARIAVEL PARA ARMAZENAR DADOS DIGITADOS NO FORMULARIO
 const state = reactive({
   email: "",
   phone: "",
@@ -74,6 +76,7 @@ const state = reactive({
 
 const rules = computed(() => ({
   email: {
+    //VALIDAÇÃO QUE APRESENTA MENSAGEM DE ERRO
     required: helpers.withMessage("O campo e-mail é obrigatório.", required),
     email: helpers.withMessage(
       "O campo e-mail deve ser um e-mail válido.",
@@ -95,6 +98,7 @@ const rules = computed(() => ({
 
 const v$ = useVuelidate(rules, state);
 
+//FUNÇÃO ASSINCRONA PARA ENVIO DO FORMULARIO E EXIBIÇÃO DE MENSAGEM
 const submitForm = async () => {
   const isFormValid = await v$.value.$validate();
   if (isFormValid) {
@@ -103,6 +107,7 @@ const submitForm = async () => {
     alert("Por favor, corrija os erros no formulário.");
   }
 };
+
 //CODIGO DESCARTADO
 //export default {
 //para executar a função após carregar a pagina (DOM)
@@ -124,6 +129,18 @@ const submitForm = async () => {
 <style scoped>
 .superior-section {
   height: 80vh;
+}
+
+.error-container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message {
+  color: red;
 }
 
 .superior-container {
@@ -222,7 +239,7 @@ const submitForm = async () => {
   }
 
   .form-content {
-    max-width: 600px;
+    max-width: 700px;
     text-align: center;
     align-items: center;
   }
