@@ -1,8 +1,12 @@
 <template>
   <section class="content-cards">
     <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-3" v-for="card in cardsData" :key="card.id">
+      <div class="catousel-container row">
+        <div
+          class="carousel-track col-md-3 col-sm-3"
+          v-for="card in cardsData"
+          :key="card.id"
+        >
           <Card :title="card.title" :description="card.description" />
         </div>
       </div>

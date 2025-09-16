@@ -24,7 +24,7 @@
                   <div class="error-container">
                     <span v-if="v$.email.$error" class="error-message">
                       <p v-for="error of v$.email.$errors" :key="error.$uid">
-                        <i class="fas fa-exclamation-circle"></i>
+                        <i></i>
                         {{ error.$message }}
                       </p>
                     </span>
@@ -54,6 +54,9 @@
                 <button type="submit" class="botao" id="botao">
                   Nome do Botão
                 </button>
+                <div class="alert-container">
+                  <span></span>
+                </div>
               </form>
             </div>
           </div>
@@ -101,10 +104,11 @@ const v$ = useVuelidate(rules, state);
 //FUNÇÃO ASSINCRONA PARA ENVIO DO FORMULARIO E EXIBIÇÃO DE MENSAGEM
 const submitForm = async () => {
   const isFormValid = await v$.value.$validate();
+  const alertContainer = document.querySelector(".alert-container");
   if (isFormValid) {
-    alert("Formulário válido!");
+    alertContainer.textContent = "Formulário válido!";
   } else {
-    alert("Por favor, corrija os erros no formulário.");
+    alertContainer.textContent = "Por favor, corrija os erros no formulário.";
   }
 };
 
@@ -127,22 +131,22 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
+.alert-container {
+  margin-top: 10px;
+}
+
 .superior-section {
   height: 80vh;
 }
 
 .error-container {
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 0px;
 }
 
 .error-message {
-  color: red;
+  color: rgb(238, 13, 13);
+  margin-bottom: 10px;
 }
-
 .superior-container {
   display: flex;
   justify-content: center;
@@ -190,7 +194,7 @@ const submitForm = async () => {
 .inputCampo {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border: 1px solid #ccc;
   border-radius: 25px;
   text-align: left;
