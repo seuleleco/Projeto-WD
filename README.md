@@ -11,6 +11,9 @@ Vue.js: Framework progressivo para a construção de interfaces de usuário.
 Nuxt.js: Framework intuitivo baseado em Vue para a criação de aplicações de SSR e sites estáticos.
 <br>
 <br>
+Vuelidate: Framework Vue que simplifica a validação de dados.
+<br>
+<br>
 HTML & CSS: Estrutura e estilização da página.
 <br>
 <br>
